@@ -20,7 +20,7 @@ export default function Produtos() {
       setCarregando(false);
     }
   };
-  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 to-rose-200 p-4">
       <div className="max-w-7xl mx-auto">
@@ -81,9 +81,11 @@ export default function Produtos() {
                     <div className="text-2xl font-bold text-rose-600">
                       ${produto.price}
                     </div>
-                    <button className="bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105">
-                      🛒 Comprar
-                    </button>
+                    <Link href={`/produtos/${produto.id}`}>
+                      <button className="bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105">
+                        🛒 Comprar
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

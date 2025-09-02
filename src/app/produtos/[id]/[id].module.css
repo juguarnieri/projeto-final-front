@@ -1,0 +1,237 @@
+.container {
+  padding: 24px;
+  background: linear-gradient(135deg, #fff0f6 0%, #fff7f7 100%);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  margin: 0 auto 24px;
+  max-width: 1100px;
+}
+
+.backButton {
+  background-color: var(--brand);
+  color: #fff;
+  border: none;
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.backButton:hover {
+  background-color: #d91d7e;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(235, 47, 150, .25);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: .2px;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+/* Layout do detalhe */
+.mainCard {
+  background-color: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+  padding: 0; /* o padding fica no body */
+}
+
+/* Torna o body do Card o container do grid e faz as colunas terem a mesma altura */
+.mainCard :global(.ant-card-body) {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr; /* imagem | infos */
+  gap: 28px;
+  align-items: stretch; /* estica as colunas para mesma altura */
+  padding: 22px;
+}
+
+/* Coluna da imagem ocupa a altura total e centraliza o conteúdo */
+.imageCol {
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;      /* centraliza H e V */
+  height: 100%;             /* estica para a altura da linha */
+  padding: 16px;
+}
+
+/* A imagem fica contida e centralizada */
+.productImage {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Coluna das infos */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center; /* alinha verticalmente o bloco de infos */
+  text-align: left; /* garante texto à esquerda */
+}
+
+.productCategory {
+  font-size: 13px;
+  color: var(--muted);
+  background: #fff0f6;
+  border: 1px solid #ffd6e7;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.productName {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.productPrice {
+  font-size: 28px;
+  color: var(--success);
+  font-weight: 900;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.badge {
+  background: #ecfeff;
+  color: #0ea5b7;
+  border: 1px solid #a5f3fc;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.badge.outline {
+  background: #fff;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.primaryBtn {
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 100%);
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: transform .12s ease, box-shadow .2s ease;
+}
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(235,47,150,.25);
+}
+
+.secondaryBtn {
+  background: #fff;
+  color: var(--brand) !important;
+  border: 2px solid #ffd6e7 !important;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+.secondaryBtn:hover {
+  background: #fff5f7;
+}
+
+/* Descrição abaixo */
+.descriptionCard {
+  background-color: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  padding: 20px;
+  animation: fadeIn .25s ease-out;
+}
+.descriptionTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.descriptionText {
+  color: #374151;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* Loading/Erro */
+.loadingWrapper,
+.errorWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  margin: 24px auto;
+  max-width: 800px;
+}
+.loadingText { color: var(--muted); font-weight: 600; }
+
+/* AntD finos */
+.detailCard :global(.ant-card-head) {
+  background: #fff0f6;
+  border-bottom: 1px solid #ffd6e7;
+}
+.detailCard :global(.ant-card-head-title) { font-weight: 800; color: var(--text); }
+.detailCard :global(.ant-descriptions-item-label) { font-weight: 700; color: var(--muted); background: #fcfcfc; }
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .mainCard :global(.ant-card-body) {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .infoCol { justify-content: flex-start; }
+  .productName { font-size: 22px; }
+  .productPrice { font-size: 24px; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
