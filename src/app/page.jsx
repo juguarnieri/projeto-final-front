@@ -3,24 +3,43 @@
 import Link from "next/link";
 import Banner from "../app/components/Banner";
 import Footer from "../app/components/Footer";
-import Header from "../app/components/Header"; // Importando o componente Header
+import Header from "../app/components/Header";
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-pink-50 flex flex-col">
-      {/* Header */}
+
       <Header />
 
-      {/* Banner */}
       <Banner
         title="Bem-vinda à Babi's Store"
         subtitle="Descubra produtos incríveis e conheça mais sobre nossa criadora."
-        imageUrl="./images/banner.png" // Caminho relativo para a imagem
+        imageUrl="./images/banner.png"
       />
 
-      {/* Main Content */}
+
       <main className="flex-grow pt-12">
         <div className="container mx-auto px-6 text-center">
+          
+          <div className="mb-12">
+            <div className="max-w-2xl mx-auto">
+              <img
+                src="./showcase.png" 
+                alt="Produtos em destaque"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+              />
+              <div className="mt-6">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                  Produtos Exclusivos
+                </h2>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  Descubra nossa coleção cuidadosamente selecionada com os melhores produtos para você. 
+                  Qualidade, estilo e preços que cabem no seu bolso!
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="space-y-6 md:space-y-0 md:space-x-6 flex flex-col md:flex-row justify-center">
             <Link
               href="/produtos"
@@ -38,7 +57,7 @@ export default function Page() {
         </div>
       </main>
 
-      {/* Footer */}
+
       <Footer />
     </div>
   );
