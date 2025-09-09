@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
@@ -12,11 +13,16 @@ import ScrollToTop from "../components/ScrollToTop";
 
 export default function PaginaProdutos() {
   const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
 
   const handleDetalhes = (produto) => {
-    toast.info(`🔍 Exibindo detalhes de: ${produto.title}`, {
+    // Navegar para a página de detalhes do produto
+    router.push(`/produtos/${produto.id}`);
+    
+    // Opcional: Mostrar toast de confirmação
+    toast.info(`🔍 Carregando detalhes de: ${produto.title}`, {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
