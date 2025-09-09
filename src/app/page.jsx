@@ -24,7 +24,7 @@ export default function Page() {
           <div className="mb-12">
             <div className="max-w-2xl mx-auto">
               <img
-                src="./showcase.png" 
+                src="./images/showcase.png" 
                 alt="Produtos em destaque"
                 className="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
