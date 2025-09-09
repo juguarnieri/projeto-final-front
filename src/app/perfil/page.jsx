@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Header from "../components/Header"; // Importando o componente Header
-import Footer from "../components/Footer"; // Importando o componente Footer
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Perfil() {
   const usuario = {
@@ -10,17 +10,14 @@ export default function Perfil() {
     escola: "Escola Técnica Estadual",
     nome: "Júlia Andrade Guarnieri",
     frase: "A criatividade é a inteligência se divertindo. - Albert Einstein",
-    avatar: "/images/avatar.png", // Caminho para a imagem na pasta public
+    avatar: "/images/avatar.png",
     bio: "Apaixonada por moda e tecnologia! 💕 Criadora desta linda loja online que utiliza a Fake Store API para demonstrar integração com APIs externas e consumo de dados em tempo real.",
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-100 to-rose-200">
-      {/* Header */}
       <Header />
-
-      {/* Conteúdo principal */}
-      <main className="flex-grow pt-24 p-4"> {/* Adicionado pt-24 para espaçamento maior */}
+      <main className="flex-grow pt-24 p-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
             <div className="bg-gradient-to-r from-pink-400 to-rose-400 p-8 text-center">
@@ -38,7 +35,6 @@ export default function Perfil() {
             </div>
             <div className="p-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Informações Pessoais</h3>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">Turma</label>
@@ -57,8 +53,6 @@ export default function Perfil() {
           </div>
         </div>
       </main>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

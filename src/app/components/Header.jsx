@@ -17,6 +17,9 @@ export default function Header() {
           <Link href="/contato" className="text-gray-600 hover:text-pink-500 font-medium">
             Contato
           </Link>
+          <Link href="/apiinfo" className="text-gray-600 hover:text-pink-500 font-medium">
+            API
+          </Link>
         </nav>
       </div>
     </header>

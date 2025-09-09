@@ -1,69 +1,91 @@
 "use client";
 
-import Header from "../components/Header"; // Importando o componente Header
-import Footer from "../components/Footer"; // Importando o componente Footer
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function ApiInfo() {
   const apiInfo = {
-    nome: "Fake Store API",
+    nome: "FakeStoreAPI (v2.1.11)",
     documentacao: "https://fakestoreapi.com/docs",
+    email: "support@fakestoreapi.com",
     urlBase: "https://fakestoreapi.com",
     endpoint: "/products",
     atributos: ["id", "title", "price", "description", "category", "image"],
     descricao:
       "A Fake Store API fornece um catálogo completo de produtos com informações como título, preço, descrição, categoria e imagens. É ideal para simular um e-commerce e testar integração com APIs externas.",
+    exemploRequisicao: `fetch('https://fakestoreapi.com/products')
+  .then(response => response.json())
+  .then(data => console.log(data));`,
+    exemploResposta: `[
+  {
+    "id": 0,
+    "title": "string",
+    "price": 0.1,
+    "description": "string",
+    "category": "string",
+    "image": "http://example.com"
+  }
+]`,
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200">
-      {/* Header */}
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-100 to-rose-200">
       <Header />
-
-      {/* Conteúdo principal */}
-      <div className="pt-16 p-4">
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-8">
-          <h2 className="text-3xl font-bold text-blue-800 mb-6 text-center">Informações sobre a API</h2>
-          <div className="grid grid-cols-1 gap-6">
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Nome da API</label>
-              <div className="bg-blue-50 px-4 py-3 rounded-lg text-gray-800">{apiInfo.nome}</div>
+      <main className="flex-grow pt-24 p-6">
+        <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl p-8">
+          <h1 className="text-4xl font-extrabold text-rose-700 mb-8 text-center">
+            🌟 Conheça Minha API: <span className="text-pink-500">{apiInfo.nome}</span>
+          </h1>
+          <p className="text-lg text-gray-700 text-center mb-8">
+            {apiInfo.descricao}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-pink-50 p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-rose-700 mb-4">📧 E-mail de Suporte</h3>
+              <p className="text-gray-800">{apiInfo.email}</p>
             </div>
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Documentação Oficial</label>
+            <div className="bg-pink-50 p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-rose-700 mb-4">📄 Documentação Oficial</h3>
               <a
                 href={apiInfo.documentacao}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-50 px-4 py-3 rounded-lg text-blue-800 underline"
+                className="text-pink-600 underline"
               >
                 {apiInfo.documentacao}
               </a>
             </div>
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">URL Base</label>
-              <div className="bg-blue-50 px-4 py-3 rounded-lg text-gray-800">{apiInfo.urlBase}</div>
+            <div className="bg-pink-50 p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-rose-700 mb-4">🌐 URL Base</h3>
+              <p className="text-gray-800">{apiInfo.urlBase}</p>
             </div>
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Endpoint</label>
-              <div className="bg-blue-50 px-4 py-3 rounded-lg text-gray-800">{apiInfo.endpoint}</div>
+            <div className="bg-pink-50 p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-rose-700 mb-4">🔗 Endpoint</h3>
+              <p className="text-gray-800">{apiInfo.endpoint}</p>
             </div>
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Atributos Recebidos</label>
-              <ul className="bg-blue-50 px-4 py-3 rounded-lg text-gray-800 list-disc pl-5">
+            <div className="bg-pink-50 p-6 rounded-lg shadow-md md:col-span-2">
+              <h3 className="text-xl font-bold text-rose-700 mb-4">📜 Atributos Recebidos</h3>
+              <ul className="list-disc pl-6 text-gray-800">
                 {apiInfo.atributos.map((atributo, index) => (
                   <li key={index}>{atributo}</li>
                 ))}
               </ul>
             </div>
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Descrição</label>
-              <div className="bg-blue-50 px-4 py-3 rounded-lg text-gray-800">{apiInfo.descricao}</div>
+            <div className="bg-pink-50 p-6 rounded-lg shadow-md md:col-span-2">
+              <h3 className="text-xl font-bold text-rose-700 mb-4">💻 Exemplo de Requisição</h3>
+              <pre className="bg-gray-100 p-4 rounded-lg text-sm text-gray-800 whitespace-pre-wrap">
+                {apiInfo.exemploRequisicao}
+              </pre>
+            </div>
+            <div className="bg-pink-50 p-6 rounded-lg shadow-md md:col-span-2">
+              <h3 className="text-xl font-bold text-rose-700 mb-4">📥 Exemplo de Resposta</h3>
+              <pre className="bg-gray-100 p-4 rounded-lg text-sm text-gray-800 whitespace-pre-wrap">
+                {apiInfo.exemploResposta}
+              </pre>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Footer */}
+      </main>
       <Footer />
     </div>
   );
